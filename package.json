@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "run": "nodemon src/index.js --exec",
+    "dev": "nodemon src/index.js --exec",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Siegfried Grimbeek <siegfried.grimbeek@gmail.com> (www.siegfriedgrimbeek.co.za)",

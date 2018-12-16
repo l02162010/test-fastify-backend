@@ -1,16 +1,15 @@
 exports.addCommentSchema = {
-  description: 'Create a new car',
+  description: 'Create a new comment',
   tags: ['comment'],
-  summary: 'Creates new car with given values',
+  summary: 'Creates new comment',
   body: {
     type: 'object',
     properties: {
-      title: { type: 'string' },
-      brand: { type: 'string' },
-      price: { type: 'string' },
-      age: { type: 'number' },
-      services: { type: 'object' }
-    }
+      user: { type: 'string' },
+      target: { type: 'string' },
+      description: { type: 'string' }
+    },
+    required: ['user', 'target', 'description']
   },
   response: {
     200: {
@@ -18,11 +17,9 @@ exports.addCommentSchema = {
       type: 'object',
       properties: {
         _id: { type: 'string' },
-        title: { type: 'string' },
-        brand: { type: 'string' },
-        price: { type: 'string' },
-        age: { type: 'number' },
-        services: { type: 'object' },
+        user: { type: 'string' },
+        target: { type: 'string' },
+        description: { type: 'string' },
         __v: { type: 'number' }
       }
     }

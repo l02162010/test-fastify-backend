@@ -16,7 +16,7 @@ const router = [
     method: 'POST',
     url: '/api/scoreStores',
     handler: scoreStoreController.addScoreStore,
-    // schema: documentation.addScoreStoreSchema
+    schema: documentation.addScoreStoreSchema
   },
   {
     method: 'PUT',

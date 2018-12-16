@@ -1,16 +1,22 @@
-exports.addCarSchema = {
-  description: 'Create a new car',
-  tags: ['cars'],
-  summary: 'Creates new car with given values',
+exports.addUserSchema = {
+  description: 'Create a new user',
+  tags: ['user'],
+  summary: 'Creates new user',
   body: {
     type: 'object',
     properties: {
-      title: { type: 'string' },
-      brand: { type: 'string' },
-      price: { type: 'string' },
-      age: { type: 'number' },
-      services: { type: 'object' }
-    }
+      name: { type: 'string' },
+      account: { type: 'string' },
+      password: { type: 'string' },
+      birthday: { type: 'number' },
+      email: { type: 'string' },
+      phone: { type: 'string' },
+      address: { type: 'string' },
+      score: { type: 'number' },
+      love: { type: 'number' },
+      badge: { type: 'object' }
+    },
+    required: ['name', 'account', 'password', 'birthday', 'email', 'phone']
   },
   response: {
     200: {
@@ -18,11 +24,16 @@ exports.addCarSchema = {
       type: 'object',
       properties: {
         _id: { type: 'string' },
-        title: { type: 'string' },
-        brand: { type: 'string' },
-        price: { type: 'string' },
-        age: { type: 'number' },
-        services: { type: 'object' },
+        name: { type: 'string' },
+        account: { type: 'string' },
+        password: { type: 'string' },
+        birthday: { type: 'number' },
+        email: { type: 'string' },
+        phone: { type: 'string' },
+        address: { type: 'string' },
+        score: { type: 'number' },
+        love: { type: 'number' },
+        badge: { type: 'object' },
         __v: { type: 'number' }
       }
     }

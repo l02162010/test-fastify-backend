@@ -24,13 +24,13 @@ mongoose.connect('mongodb://admin:aa1234@ds037468.mlab.com:37468/baoyoutest')
 routes.forEach((route, index) => {
   fastify.route(route)
 })
-
+let PORT = process.env.PORT || 3000
 // Run the server!
 const start = async () => {
   try {
     console.log('port:')
-    console.log(process.env.PORT)
-    await fastify.listen(process.env.PORT || 3000)
+    console.log(PORT)
+    await fastify.listen(PORT)
     fastify.swagger()
     fastify.log.info(`server listening on ${fastify.server.address().port}`)
   } catch (err) {

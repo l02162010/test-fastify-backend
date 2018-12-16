@@ -30,7 +30,7 @@ const start = async () => {
   try {
     console.log('port:')
     console.log(PORT)
-    await fastify.listen(PORT)
+    await fastify.listen(PORT, '0.0.0.0')
     fastify.swagger()
     fastify.log.info(`server listening on ${fastify.server.address().port}`)
   } catch (err) {

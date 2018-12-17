@@ -6,8 +6,9 @@ exports.addUserSchema = {
     type: 'object',
     properties: {
       name: { type: 'string' },
-      account: { type: 'string' },
       password: { type: 'string' },
+      confirmPwd: { type: 'string' },
+      gender: {type: 'string' },
       birthday: { type: 'number' },
       email: { type: 'string' },
       phone: { type: 'string' },
@@ -16,7 +17,7 @@ exports.addUserSchema = {
       love: { type: 'number' },
       badge: { type: 'object' }
     },
-    required: ['name', 'account', 'password', 'birthday', 'email', 'phone']
+    required: ['email', 'password', 'confirmPwd', 'gender']
   },
   response: {
     200: {
@@ -25,8 +26,9 @@ exports.addUserSchema = {
       properties: {
         _id: { type: 'string' },
         name: { type: 'string' },
-        account: { type: 'string' },
         password: { type: 'string' },
+        confirmPwd: { type: 'string' },
+        gender: {type: 'string' },
         birthday: { type: 'number' },
         email: { type: 'string' },
         phone: { type: 'string' },

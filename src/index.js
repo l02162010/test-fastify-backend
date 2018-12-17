@@ -25,7 +25,10 @@ fastify.register(require('fastify-cors'), {
 mongoose.connect('mongodb://admin:aa1234@ds037468.mlab.com:37468/baoyoutest', { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err))
-
+fastify.route({
+  method: 'OPTIONS',
+  path: '*'
+}, (request, reply) => { reply.send() })
 // Loop over each route
 routes.forEach((route, index) => {
   fastify.route(route)

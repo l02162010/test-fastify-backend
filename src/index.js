@@ -16,7 +16,7 @@ const swagger = require('./config/swagger')
 fastify.register(require('fastify-swagger'), swagger.options)
 // Register Cros
 fastify.register(require('fastify-cors'), {
-  "origin": '',
+  "origin": '*',
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": true,
   "optionsSuccessStatus": 201

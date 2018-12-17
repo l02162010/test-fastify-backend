@@ -14,7 +14,8 @@ const swagger = require('./config/swagger')
 
 // Register Swagger
 fastify.register(require('fastify-swagger'), swagger.options)
-
+// Register Cros
+fastify.register(require('fastify-cors'), { origin: true })
 // Connect to DB
 mongoose.connect('mongodb://admin:aa1234@ds037468.mlab.com:37468/baoyoutest', { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected...'))

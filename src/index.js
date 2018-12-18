@@ -29,7 +29,7 @@ mongoose.connect('mongodb://admin:aa1234@ds037468.mlab.com:37468/baoyoutest', { 
 routes.forEach((route, index) => {
   fastify.route(route)
 })
-let PORT = process.env.PORT || 3000
+let PORT = process.env.PORT || 4000
 // Run the server!
 const start = async () => {
   try {

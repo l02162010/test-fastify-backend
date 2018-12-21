@@ -11,16 +11,16 @@ const routes = require('./routes')
 
 // Import Swagger Options
 const swagger = require('./config/swagger')
+const cors = require('cors')
 
 // Register Swagger
 fastify.register(require('fastify-swagger'), swagger.options)
-// Register Cros
-fastify.register(require('fastify-cors'), {
-  "origin": true,
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": true,
-  "optionsSuccessStatus": 201
-  })
+fastify.use(cors())
+fastify.options('*', (request, reply) => { reply.send() })
+
+fastify.register(require('fastify-jwt'), {
+  secret: 'supersecret'
+})
 // Connect to DB
 mongoose.connect('mongodb://admin:aa1234@ds037468.mlab.com:37468/baoyoutest', { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected...'))
@@ -29,6 +29,7 @@ mongoose.connect('mongodb://admin:aa1234@ds037468.mlab.com:37468/baoyoutest', { 
 routes.forEach((route, index) => {
   fastify.route(route)
 })
+
 let PORT = process.env.PORT || 4000
 // Run the server!
 const start = async () => {

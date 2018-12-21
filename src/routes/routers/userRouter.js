@@ -9,8 +9,9 @@ const router = [
   },
   {
     method: 'GET',
-    url: '/api/users/:id',
-    handler: userController.getSingleUser
+    url: '/api/user',
+    handler: userController.getSingleUser,
+    schema: documentation.getSingleUser
   },
   {
     method: 'POST',
@@ -27,6 +28,11 @@ const router = [
     method: 'DELETE',
     url: '/api/users/:id',
     handler: userController.deleteUser
+  },
+  {
+    method: 'POST',
+    url: '/api/login',
+    handler: userController.login
   }
 ]
 module.exports = router

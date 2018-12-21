@@ -21,7 +21,7 @@ const router = [
   },
   {
     method: 'PUT',
-    url: '/api/users/:id',
+    url: '/api/user',
     handler: userController.updateUser
   },
   {

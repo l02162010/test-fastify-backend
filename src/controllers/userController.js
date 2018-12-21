@@ -33,6 +33,7 @@ exports.getSingleUser = async (req, reply) => {
         message: '成功',
         data: res
       }
+      console.log(res)
       reply
       .send(result)
     }else{
@@ -68,11 +69,28 @@ exports.addUser = async (req, reply) => {
 // Update an existing user
 exports.updateUser = async (req, reply) => {
   try {
-    const id = req.params.id
-    const user = req.body
-    const { ...updateData } = user
-    const update = await User.findByIdAndUpdate(id, updateData, { new: true })
-    return update
+    let authToken = req.headers.authorization
+    var decoded = jwt.verify(authToken, 'shhhhh')
+    const id = decoded.userId
+    let exp = decoded.exp
+    let now = Math.floor(Date.now() / 1000)
+    if (now < exp) {
+      const user = req.body
+      const { ...updateData } = user
+      console.log(user)
+      const update = await User.findByIdAndUpdate(id, updateData, { new: true })
+      console.log(update)
+      reply
+      .send(update)
+    }else{
+      reply
+      .code(401)
+      .send({
+        success: false,
+        message: 'token 過期'
+      })
+    }
+
   } catch (err) {
     throw boom.boomify(err)
   }

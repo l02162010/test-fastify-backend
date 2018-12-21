@@ -59,21 +59,27 @@ exports.getSingleUser = {
       properties: {
         data: { type: 'object',
           properties: {
-            email: { type: 'string' }
+            email: { type: 'string' },
+            name: { type: 'string' },
+            gender: {type: 'string' },
+            birthday: { type: 'object',
+            properties: {
+              year: {type: 'number'},
+              month: {type: 'number'},
+              date: {type: 'number'}
+            }},
+            email: { type: 'string' },
+            phone: { type: 'string' },
+            address: { type: 'string' },
+            score: { type: 'number' },
+            love: { type: 'number' },
+            discription: { type: 'string' },
+            badge: { type: 'object' }
           }
         },
         _id: { type: 'string' },
         message: { type: 'string' },
         success: { type: 'boolean'},
-        name: { type: 'string' },
-        gender: {type: 'string' },
-        birthday: { type: 'number' },
-        email: { type: 'string' },
-        phone: { type: 'string' },
-        address: { type: 'string' },
-        score: { type: 'number' },
-        love: { type: 'number' },
-        badge: { type: 'object' },
         __v: { type: 'number' }
       }
     }
